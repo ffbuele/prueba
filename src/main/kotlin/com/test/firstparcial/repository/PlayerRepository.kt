@@ -12,5 +12,6 @@ interface PlayerRepository: JpaRepository<Player, Long> {
     @Query(nativeQuery=true)
     fun getListHora (@Param("hora")  hora:String?) : List <Player>?
 
+    @Query(nativeQuery=true)
     fun getListCancha (@Param("cancha")  cancha:String?) : List <Player>?
 }
