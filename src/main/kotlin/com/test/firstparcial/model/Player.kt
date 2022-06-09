@@ -3,7 +3,7 @@ package com.test.firstparcial.model
 import javax.persistence.*
 
 @Entity
-@Table(name = "person")
+@Table(name = "player")
 
 class Player {
 
@@ -13,6 +13,6 @@ class Player {
 
     var id: Long? = null
     var name: String? = null
-    var last_name: String? = null
-    var age: Long? = null
+    var hora: String? = null
+    var cancha: String? = null
 }
