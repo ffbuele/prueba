@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS player (
+    id SERIAL,
+    name VARCHAR (191) NOT NULL,
+    hora VARCHAR (191) NOT NULL,
+    fecha VARCHAR (191) NOT NULL,
+    PRIMARY KEY (id)
+);
