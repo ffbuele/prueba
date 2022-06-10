@@ -1,5 +1,7 @@
 package com.test.firstparcial.controller
 
+import com.test.firstparcial.model.CanchaView
+import com.test.firstparcial.model.HoraView
 import com.test.firstparcial.model.Player
 import com.test.firstparcial.service.PlayerService
 import org.springframework.beans.factory.annotation.Autowired
@@ -17,19 +19,14 @@ class PlayerController {
         return playerService.list()
     }
 
-    @GetMapping("/id")
-    fun listById(@PathVariable("id") id:Long): Player?{
-        return playerService.getById(id)
+    @GetMapping("/frequency/hora")
+    fun listHoraView (): List<HoraView>?{
+        return playerService.listHoraView()
     }
 
-    @GetMapping("/hora/{hora}")
-    fun getByHora (@PathVariable("hora") hora: String): List<Player>?{
-        return playerService.getByHora(hora)
-    }
-
-    @GetMapping("/cancha/{cancha}")
-    fun getByCancha (@PathVariable("cancha") cancha: String): List<Player>?{
-        return playerService.getByCancha(cancha)
+    @GetMapping("/frequency/cancha")
+    fun listCanchaView (): List<CanchaView>?{
+        return playerService.listCanchaView()
     }
 
     @PostMapping

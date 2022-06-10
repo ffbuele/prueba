@@ -1,6 +1,10 @@
 package com.test.firstparcial.service
 
+import com.test.firstparcial.model.CanchaView
+import com.test.firstparcial.model.HoraView
 import com.test.firstparcial.model.Player
+import com.test.firstparcial.repository.CanchaViewRepository
+import com.test.firstparcial.repository.HoraViewRepository
 import com.test.firstparcial.repository.PlayerRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
@@ -13,20 +17,22 @@ class PlayerService {
     @Autowired
     lateinit var playerRepository: PlayerRepository
 
+    @Autowired
+    lateinit var canchaViewRepository: CanchaViewRepository
+
+    @Autowired
+    lateinit var horaViewRepository: HoraViewRepository
+
     fun list(): List<Player>{
         return playerRepository.findAll()
     }
 
-    fun getById(id:Long?): Player?{
-        return playerRepository.findById(id)
+    fun listHoraView(): List<HoraView>?{
+        return horaViewRepository.findAll()
     }
 
-    fun getByHora(hora: String?): List<Player>?{
-        return playerRepository.getListHora (hora)
-    }
-
-    fun getByCancha(cancha: String?): List<Player>?{
-        return playerRepository.getListCancha (cancha)
+    fun listCanchaView(): List<CanchaView>?{
+        return canchaViewRepository.findAll()
     }
 
     fun save(player: Player): Player{
